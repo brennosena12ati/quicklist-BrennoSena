@@ -179,7 +179,7 @@ main {
     border-radius: 1.2rem;
     margin-top: 2.4rem;
 
-    /*Efeitos para a hora em que for aparecer */
+    /*Efeitos para a hora em que for aparecer*/
     opacity: 1;
     transform: traslatey(0);
     transition: opacity .4s ease, trasform .4s ease;
@@ -199,4 +199,9 @@ main {
         background: none;
         color: var(--always-white);
     }
+}
+
+.hide-warning {
+    opacity: 0;
+    transform: trasllateY(-10px);
 }
