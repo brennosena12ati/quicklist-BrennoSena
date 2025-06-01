@@ -9,9 +9,7 @@ function addItem() {
   }
 
   items.push(item)
-
   document.querySelector("#item").value = ""
-
   showItemsList()
 }
 
@@ -22,18 +20,30 @@ function showItemsList() {
   items.map((item, index) => {
     sectionList.innerHTML += `
       <div class="item">
-                <div>
-                    <input type="checkbox" name="list" id="item-${index}">
-                    <div class="custom-checkbox">
-                        <img src="./assets/checked.svg" alt="chaecked">
-                    </div>
-                    <label for="item-${index}">${item.name}</label>
-                </div>
+        <div>
+          <input type="checkbox" name="list" id="item-${index}">
+          <div class="custom-checkbox">
+            <img src="./assets/checked.svg" alt="checked">
+          </div>
+          <label for="item-${index}">${item.name}</label>
+        </div>
+        <button onclick="removeItem('${item.name}')">
+          <img src="./assets/trash-icon.svg" alt="trash icon">
+        </button>
+      </div>
+    `
+  })
+}
 
-                <button>
-                    <img src="./assets/trash-icon.svg" alt="trash icon">
-                </button>
-            </div>
-            `
-    })
+function removeItem(itemName) {
+  const itemIndex = items.findIndex((item) => item.name === itemName)
+  const divWarning = document.querySelector(".warning")
+
+  divWarning.classList.remove("hide-warning")
+
+  if (itemIndex !== -1) {
+    items.splice(itemIndex, 1)
+  }
+
+  showItemsList()
 }
