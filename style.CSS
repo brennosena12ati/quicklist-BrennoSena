@@ -185,7 +185,7 @@ main {
     transition: opacity .4s ease, trasform .4s ease;
 
     div {
-        display: felex;
+        display: flex;
         align-items: center;
         gap: .8rem;
     }
